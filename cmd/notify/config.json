@@ -1,0 +1,16 @@
+{
+    "LogMaxSize": 50,
+    "LogBackups": 3,
+    "LogMaxAge": 28,
+    "LogCompress": false,
+    "Interval": 5,
+    "RetryInterval": 60,
+    "AppID": "Gmail notify",
+    "Title": "You've got mail.",
+    "Labels": [
+        "INBOX",
+        "UNREAD"
+    ],
+    "NotifyBeginHour": 7,
+    "NotifyEndHour": 22
+}
