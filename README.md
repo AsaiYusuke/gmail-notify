@@ -14,7 +14,7 @@
 
 1. Prepare *notify.exe*, *get-token.exe* and *config.json*.
 ``` Text
-cd cmd/notify; go build 
+cd cmd/notify; go build -ldflags -H=windowsgui 
 cd cmd/get-token; go build 
 ```
 
