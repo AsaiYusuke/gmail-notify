@@ -20,7 +20,7 @@ func (p *paths) init() {
 	}
 	p.executableDir = filepath.Dir(executeFile)
 
-	imageSrcFilePath := p.executableDir + pathImageFilename
+	imageSrcFilePath := path.Join(p.executableDir, pathImageFilename)
 	if _, err := os.Stat(imageSrcFilePath); err == nil {
 		p.imageSrcFilePath = imageSrcFilePath
 	}
