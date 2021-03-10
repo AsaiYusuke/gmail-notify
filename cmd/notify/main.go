@@ -43,10 +43,10 @@ func main() {
 	template := commandTemplate{}
 	template.init()
 
-	statusMap := make(map[string]*status, 1)
+	statusList := make([]status, 0)
 
 	for _, subDir := range p.getServiceDirs() {
-		status := &status{
+		status := status{
 			paths:  &p,
 			conf:   &conf,
 			subDir: subDir,
@@ -64,14 +64,14 @@ func main() {
 			},
 		}
 
-		statusMap[subDir] = status
+		statusList = append(statusList, status)
 	}
 
 	for {
 		nowHour := time.Now().Hour()
 		if checkValidHour(nowHour, conf) || checkValidHour(nowHour+24, conf) {
-			for _, subDir := range p.getServiceDirs() {
-				statusMap[subDir].update()
+			for _, status := range statusList {
+				status.update()
 			}
 			time.Sleep(time.Minute * conf.Interval)
 		} else {
